@@ -13,7 +13,7 @@ source:
   sha256: 8e99702fd4092c26624b914bcd140d03911a16445ba6a74435b29a190469cce3
 
 build:
-  number: 0
+  number: 1
 
 # To allow downstream `noarch: python` feedstocks to unconditionally depend
 # on `backports.zstd` without having their _own_ variants, this builds multiple
@@ -35,6 +35,10 @@ outputs:
       build:
         - ${{ compiler("c") }}
         - ${{ stdlib("c") }}
+        - if: build_platform != target_platform
+          then:
+            - python
+            - cross-python_${{ target_platform }}
       host:
         - pip
         - python
@@ -50,7 +54,7 @@ outputs:
   - package:
       name: backports.zstd
     build:
-      skip: not (build_platform == "linux-64" and match(python, python_min ~ ".*"))
+      skip: not (match(python, "3.14.*") and target_platform == "linux-64")
       noarch: generic
     requirements:
       run:
