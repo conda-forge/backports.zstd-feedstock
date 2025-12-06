@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.1.0"
+  version: "1.2.0"
 
 recipe:
   name: backports.zstd-split
@@ -10,10 +10,10 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/b/backports.zstd/backports_zstd-${{ version }}.tar.gz
-  sha256: 8ce84125e3094ddefbaa25306e8949965ce092b400a1fd63b5e6a5e932d2994f
+  sha256: 6c3fc19342db750b52fde793e4440a93575761b1493bb4a1d3b26033d2bd3452
 
 build:
-  number: 1
+  number: 0
 
 # To allow downstream `noarch: python` feedstocks to unconditionally depend
 # on `backports.zstd` without having their _own_ variants, this builds multiple
