@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.5.0"
+  version: "1.6.0"
 
 recipe:
   name: backports.zstd-split
@@ -10,7 +10,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/b/backports.zstd/backports_zstd-${{ version }}.tar.gz
-  sha256: a5e622a82eb183b4fbe18032755ce0a15fa9a82f2adb9b621620b91247aaedb7
+  sha256: 80a7859ffe70bf239d7a2ce15293bdeb5b4280ff7dc326ffab312b0e254dbb24
 
 build:
   number: 0
