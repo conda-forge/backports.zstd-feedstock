@@ -13,7 +13,7 @@ source:
   sha256: 1a967189c1822b6e85a2e550fdfc88a3272c17633ea0a4732dac5911a8034f2b
 
 build:
-  number: 0
+  number: 1
 
 # To allow downstream `noarch: python` feedstocks to unconditionally depend
 # on `backports.zstd` without having their _own_ variants, this builds multiple
