@@ -9,11 +9,13 @@ recipe:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/b/backports.zstd/backports_zstd-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/b/backports.zstd/backports_zstd-${{ version }}.tar.gz
   sha256: 9dae4f4c481716e3db473d667457b4f508ff7459c0931b567a5c9677fb3db316
 
 build:
-  number: 0
+  number: 1
+  # no builds needed on platforms which only ship python 3.14+
+  skip: match(python_min, ">=3.14")
 
 # To allow downstream `noarch: python` feedstocks to unconditionally depend
 # on `backports.zstd` without having their _own_ variants, this builds multiple
@@ -30,7 +32,7 @@ outputs:
     build:
       skip: match(python, ">=3.14")
       script:
-        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --config-settings=--build-option=--system-zstd --disable-pip-version-check
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --config-settings=--build-option=--system-zstd --disable-pip-version-check --check-build-dependencies
     requirements:
       build:
         - ${{ compiler("c") }}
@@ -47,6 +49,11 @@ outputs:
       run:
         - python
     tests:
+      - package_contents:
+          strict: true
+          site_packages:
+            - backports/zstd/**
+            - backports_zstd-${{ version }}.dist-info/**
       - python:
           imports: backports.zstd
           pip_check: true
@@ -60,19 +67,21 @@ outputs:
       run:
         - python >=3.14
     tests:
+      - package_contents:
+          strict: true
       - python:
           imports: compression.zstd
           pip_check: true
-          python_version: "*"
+          python_version:
+            - 3.14.*
+            - 3.15.*
     about:
-      homepage: https://github.com/rogdham/backports.zstd
-      license: BSD-3-Clause AND MIT AND EPL-2.0
-      license_file: LICENSE.txt
       summary: Backport of compression.zstd (no-op on Python 3.14+)
 
 about:
-  homepage: https://github.com/rogdham/backports.zstd
-  license: BSD-3-Clause AND MIT AND EPL-2.0
+  homepage: https://pypi.org/project/backports.zstd
+  repository: https://github.com/rogdham/backports.zstd
+  license: Python-2.0
   license_file: LICENSE.txt
   summary: Backport of compression.zstd
 
