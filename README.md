@@ -7,20 +7,24 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/backports.zstd-
 About backports.zstd
 --------------------
 
-Home: https://github.com/rogdham/backports.zstd
+Home: https://pypi.org/project/backports.zstd
 
-Package license: BSD-3-Clause AND MIT AND EPL-2.0
+Package license: Python-2.0
 
 Summary: Backport of compression.zstd
+
+Development: https://github.com/rogdham/backports.zstd
 
 About backports.zstd-split
 --------------------------
 
-Home: https://github.com/rogdham/backports.zstd
+Home: https://pypi.org/project/backports.zstd
 
-Package license: BSD-3-Clause AND MIT AND EPL-2.0
+Package license: Python-2.0
 
 Summary: Backport of compression.zstd
+
+Development: https://github.com/rogdham/backports.zstd
 
 Current build status
 ====================
