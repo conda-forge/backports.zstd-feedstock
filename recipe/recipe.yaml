@@ -47,6 +47,11 @@ outputs:
       run:
         - python
     tests:
+      - package_contents:
+          strict: true
+          site_packages:
+            - backports/zstd/**
+            - backports-${{ version }}.dist-info/**
       - python:
           imports: backports.zstd
           pip_check: true
@@ -60,19 +65,21 @@ outputs:
       run:
         - python >=3.14
     tests:
+      - package_contents:
+          strict: true
       - python:
           imports: compression.zstd
           pip_check: true
-          python_version: "*"
+          python_version:
+            - 3.14.*
+            - 3.15.*
     about:
-      homepage: https://github.com/rogdham/backports.zstd
-      license: BSD-3-Clause AND MIT AND EPL-2.0
-      license_file: LICENSE.txt
       summary: Backport of compression.zstd (no-op on Python 3.14+)
 
 about:
-  homepage: https://github.com/rogdham/backports.zstd
-  license: BSD-3-Clause AND MIT AND EPL-2.0
+  homepage: https://pypi.org/project/backports.zstd
+  repository: https://github.com/rogdham/backports.zstd
+  license: Python-2.0
   license_file: LICENSE.txt
   summary: Backport of compression.zstd
 
