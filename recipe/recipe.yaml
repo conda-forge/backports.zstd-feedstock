@@ -51,7 +51,7 @@ outputs:
           strict: true
           site_packages:
             - backports/zstd/**
-            - backports-${{ version }}.dist-info/**
+            - backports_zstd-${{ version }}.dist-info/**
       - python:
           imports: backports.zstd
           pip_check: true
