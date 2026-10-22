@@ -14,6 +14,8 @@ source:
 
 build:
   number: 1
+  # no builds needed on platforms which only ship python 3.14+
+  skip: match(python_min, ">=3.14")
 
 # To allow downstream `noarch: python` feedstocks to unconditionally depend
 # on `backports.zstd` without having their _own_ variants, this builds multiple
