@@ -13,7 +13,7 @@ source:
   sha256: c8929bf0ce07c020bc330442fae266c8ef112cae269f85457e8cf857cab57200
 
 build:
-  number: 0
+  number: 1
   # no builds needed on platforms which only ship python 3.14+
   skip: match(python_min, ">=3.14")
 
