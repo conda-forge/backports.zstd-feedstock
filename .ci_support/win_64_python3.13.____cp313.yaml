@@ -19,4 +19,4 @@ python_min:
 target_platform:
 - win-64
 zstd:
-- '1.5'
+- '1.6'

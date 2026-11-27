@@ -25,4 +25,4 @@ python_min:
 target_platform:
 - osx-arm64
 zstd:
-- '1.5'
+- '1.6'
